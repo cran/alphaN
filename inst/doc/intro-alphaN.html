@@ -340,7 +340,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(alphaN)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(alphaN)</span></code></pre></div>
 <p>We wish to determine which alpha level is equivalent to a Bayes
 factor of 1. I.e. only reject the null if the data is at least at likely
 under the null and under the alternative. To do this, we need a way to
@@ -350,8 +350,8 @@ coefficients in regression models.</p>
 <div id="installation" class="section level1">
 <h1>Installation</h1>
 <p>You can install the development version of alphaN from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;jespernwulff/alphaN&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;jespernwulff/alphaN&quot;</span>)</span></code></pre></div>
 </div>
 <div id="basic-functionality" class="section level1">
 <h1>Basic functionality</h1>
@@ -368,9 +368,9 @@ with 1000 observations. We thus set <code>n = 1000</code>. The default
 <code>BF</code> is 1 meaning that we want to avoid Lindley’s paradox,
 i.e. we just want the null and the alternative to be at least equally
 likely when we reject the null.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fu">alphaN</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">BF =</span> <span class="dv">1</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>alpha</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.008582267</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fu">alphaN</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">BF =</span> <span class="dv">1</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>alpha</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; [1] 0.008582267</span></span></code></pre></div>
 <p>Therefore, to obtain evidence of at least 1, we should set our alpha
 to 0.0086.</p>
 </div>
@@ -380,7 +380,7 @@ to 0.0086.</p>
 <p>The <code>alphaN</code> function works by mapping the
 <em>p</em>-value to the Bayes factor. This relationship can be shown
 using the <code>JAB_plot</code>. For instance:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">JAB_plot</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">BF =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">JAB_plot</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">BF =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="data:image/png;base64,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" /><!-- --></p>
 <p>The alpha level needed to achieve a Bayes factor of 1 is shown with a
 red triangle in the plot. Lines for achieving Bayes factors of 3
@@ -396,9 +396,9 @@ needed such that a significant result can be interpreted as evidence for
 the alternative.</p>
 <p>The graph below illustrates this relationship for previous
 example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>seqN <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">50</span>, <span class="dv">1000</span>, <span class="dv">1</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(seqN, <span class="fu">alphaN</span>(seqN), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;n&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Alpha&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>seqN <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">50</span>, <span class="dv">1000</span>, <span class="dv">1</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">plot</span>(seqN, <span class="fu">alphaN</span>(seqN), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;n&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Alpha&quot;</span>)</span></code></pre></div>
 <p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
 <div id="setting-the-prior" class="section level2">
@@ -418,116 +418,13 @@ the sample size is small, and <code>method = &quot;balanced&quot;</code> is for
 when Type-II errors are costly.</p>
 <p>For instance, to achieve evidence of 3 for 1,000 observations while
 we ensure balanced error rates, we run</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">alphaN</span>(<span class="dv">1000</span>, <span class="at">BF =</span> <span class="dv">3</span>, <span class="at">method =</span> <span class="st">&quot;balanced&quot;</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.024221</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">alphaN</span>(<span class="dv">1000</span>, <span class="at">BF =</span> <span class="dv">3</span>, <span class="at">method =</span> <span class="st">&quot;balanced&quot;</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; [1] 0.024221</span></span></code></pre></div>
 <p>The package contains the convenience function
 <code>alphaN_plot</code> that allows a quick comparison of alpha as a
 function of sample size for the four different methods:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">alphaN_plot</span>(<span class="at">BF =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">alphaN_plot</span>(<span class="at">BF =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAEgCAMAAAAjXV6yAAAA2FBMVEUAAAAAADoAAGYAOjoAOmYAOpAAZmYAZpAAZrYAv8Q6AAA6ADo6AGY6OgA6Ojo6OmY6OpA6ZpA6ZrY6kLY6kNtmAABmADpmAGZmOgBmOjpmOmZmZgBmZjpmkJBmkLZmkNtmtrZmtttmtv98rgCQOgCQOjqQZgCQZjqQkGaQkLaQtpCQttuQtv+Q2/+2ZgC2Zjq2ZpC2kGa2tpC225C229u22/+2/9u2///HfP/bkDrbkGbbtmbbtpDb25Db27bb29vb///4dm3/tmb/25D/27b//7b//9v///9rA9oPAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAM3klEQVR4nO2d+2PbthHHadfaHKVellROk61ZGlVt+piZdYtnc81SmbLI//8/KnDAQZD4OIIE+JDu+4NNiQJFfHQ4PHgAopxVq2joGxi7GBAhBkSIARFiQIQYECEGRIgBEWJAhBgQIQZEiAERYkCEGBAhBkSIARFiQIQYECEGRIgBEWJAhBgQIQZEiAERYkCEGBAhBkSIARFiQIQYECEGRIgBEQoFKImUzp7ftkmefZhH0Yuqk/+6c77g43txL/9Yu99JaEBRdO6emzxPZcpF+bnHV+6X3F7DvVy630l4QFX5JJKf3VSdi1swF7fzTv5ZOt9JOEAqF5s5/GyfXglSz27ybKV+xRTuNfsg7P4F2P3/ruziGEPpvDHJpH4Tn/jinT4nL/7ptXgDSo3A+fOr6PxWf6Eu3Bbh7Ne/zNby1PgAfZpLC0rNPev3wQq03V/cGYND09CAUiurMZojAtJJRMb14QxIlwICZXGNWVYqfBET9y3s5s/wAy70ryjQXAKlW/WufL3Of9sVRyhiVjKJ+Kv147Uko4qYeFtcOYEk4u/sNv8dUlYCEle4cOcTHtDZO/XG51+vpJNUZQxKmKCyyJWtiVxdfNxPrvOnk2kqyfOPeBhbptjIucg7qqoXa9SPk87eR1iLJMoIlEvA31pgi9Ch6OQS0C6Z+MAMTwITfCNR5bZR2VHF3VGhfRCUCpn/i58+Q7mSZUzZTmqM7EZU3eronya5KmKYDJ27FPqvnbe3AVX7oHb1X2hAcPPKjag8yayqDO1XKo8/XhlHqwFZyZpb0NQAPa5UbbTMdX5lbq4gc2gERtkPJgOQZTuZylv67JdyH0QAenw9X8CHZ85t6R580GwNNY5ABUAgB+ALYunBRRmcraGOkuXs0IJMMvGJF2tZ5rBA7ddihA/K5M9k15LNFR6QdibopOGFMhTdDpKZ+3DwqyeFZLE5TEvaQZST1nblbkDhAT2T7VtZHV38ootdavpEj+/Ffavms2wnq8/q5FiLmWTQkn6bq/b3xa1uSb/dfbpWj69H1lmtUdqmSzSY+gckPE2rDv5A6hsQ+J02/fuhNACgs696/s5O4iFXQgyIEAMixIAIMSBCDIgQAyLEgAgxIEIMiBADIsSACDEgQgyIEAMixIAIMSBCLoC213KsVD91ORU5A0rUQ9EJPZfoJldAGk3S4hHcNOUKaDMHQOnJFDK2IEJugPBBuXLXJyHHal4+1pJxKSfDh9tBlBgQITdAGLFzMnWYI6AEfQ/lhO7vW9/Q2OQCKFsZLEQ1f6KArA4G0VA8UUDNLeiI5OiDtAkd+qBdSKu3GxuL3HKk41Kro0VPHVDflxuBGBChljlKKmoxfbkTrcWaX44BEZdjQD1dbgTy3Fk9cUB0Z/W0ATXoapw2oAad1T4AZSs1myrWZhxXzcD0ojAWdB+yGtOANk+/Ub9SrCavBiLkp7N6eLk+ACXn/1HP6BSgUA9aAnVW3QA91KnwaQVI/NWkEFCYp+GB2kFOgGr5VAFK5XRwtaqHKmItlr5pojEAcpQCJLGoYhUTVt1NUwW0URPhYQY9oEnbrJ7UQEEAPXkSHBDOql4iIAXLvyYGKIFVKS6xJtteXxpAVSMwHRUIkN+r7pTCegML+C8l3TRaUBgn5AdQb4P20vXIECWkIV+jD5pUNR9MKfgdHcaVg+cZT1ej/8uNQKEAHc2YYhhAYev5XsWACIUC5PeyA4qdNCEGRGhigLKVHqpLRe+9lwkRwQCF8dJmucA2C9q10uQA/emlbDJvv/77pAGJWizMsLToxccwJ2v2gypi2+tvr4OuiTYKQN9pVb3eSQBKpenEixgBmaHXMArXDmoO6LsDIIevLQlAmy/v8u3LGwNokVt9V/8KV4uFKmLZailK2NoAWoad3zc9QPL5RQyjQAyoKAlo8+V/v785AkBBpMaj3wg3NHFAoXqrMFgfR2qongEVBYBS/bBnQoAKg/YAKGgIQ18K6YMYUPDLjUAMiBADInSYo+z9Wy+X09XY9N3QDtD2bz9BpNbXNTEASaSHFoi5GkcJSG4Kd/bm39/UWJAcVoCAisaAfBPCSHY7HrG6L596aB7ZRSz78OwqelE9UKeiXLPVbE0DQt37JaTDXvYiFSoBeWk/WjlK/3qb5/9/VR2ohV8oGrGNAXk2IQ0IQ6VBfQHKvodhOTkeVXl32rLjy+aA/PbqTRC5HFZMVVnbzN/MI7ULkO52wDYjS/m3+8C15aSVd65z0ohle101ncUG1Lw7hg6r6v9OtgWlsEfZpcAB29wsDCAwqVRuQuW3iMWzW7nPXV0sJEaSZysa0F7uaq3oif5o1X9LGEQu7kPZcyr3noI9lc7vEFBqfke/gDLYYOd5J6OsAOTNEWEttkTXI/6qA0EKAW2vce8gz7VYnn3+2LHMVrWk/QGCEGC1y5TMvixRT6XzFH+NDwKMywCAGtzfwBPqdJR9tKizIPhkrF93VY8T6nw0iXB6hg52tX2QHECzHgFBUesZkOuEugMne3/fHZGJjxbfv1eLpeC2Z3KPtiXECINFeZgAFHJCXaEW6k4I20EJ7iJp2kHKIUXRt+ImUx316iPCIaQFlWh6nVc/E+oOxqTLHhpPVUEm1NmAph6tGGRE0QI0+XBOBkSoJaD63vzp+qCGlzsI7SnpdE5HDIhQmMc+pWXMC6WSuU8OPYrUPVavv86qHzMqWWZhRIA6dVZ9AtrrZY0HkIeuRrk7wv7H/b3doS3tldjLLMRq5AxemGOMCk702uAJPiQSB2c/hgXkYfWXUkCI5H4PUHm3zVpmQQ4Oqyd1S+tYRwWrFwv4D+MhctZ42mLiZs8W1Fm7ZRa2L2/U6I8c+dkdqyEhLIN6K5DzOzVMFAf3QQ1Xfwmn/WUWUmtkdXeMDzZydDrilTL54LVYw85qyYokvmQtsyCcCqyQI6HYx7txajVkBIP8ST+AGl7uIVxfY7fMAhiJLmL2cYkF5eg0TweQ+AdZVsOuS/tYD0ejD9JOQRFrMakjFKBQhHbLLCiDiRZoMHisqCQwrH+pkMS6WgtdizW+3EM4E7K6GrJhc6Of7tjHipLdDoLi1UM7qPnlApaxvsWACIUJJGdAxOUYEHG5gC3FvhUK0NEQYkCEAkXaMyDicg8PAVvTvSoooGMgFGoyy9EQCggoPwpCwaZDaUJ+Lz+AQgI6iqos3IQ6azXoKZe1kDMOccXs6rVKJqCwUzLNsuLFxV38fm84BZ+zWliBvfliQaNQP5N6CwvVCyC2bZUsHpRXvO5bPU9FqF/f3+ZV/rqw9lKL10457nMqQoVIZg78Gr12u72pPZsHOTEtyO27/ER38DaiIN6IlhId3XF88hzdcXw6PqfhWUEARaPWGAB1O9/tdNfk3T7u56IMqNt5BsSAup1nQAyo23kGxIC6nT9+QMckBkSIARFiQIQYECEGRIgBEWJAhBgQIQZEiAERYkCEGBAh/4DSNhtT41RUnbR4UCOzjny75IS8A5Izr51nX6fwrNYkLR7UKNHLTLZMTsk3IBXgULvmclHbawnIJC0e1H7hZVWqVvdyKN+A9Pz0yhC0UiVyS8dd0uJBTVoDqF1yUt4BwZoQVYvDVKaRPsgkLR7UpcYi1jI5Jd+AVJF3KviyJEhAJmnxoP4rlSdum5zQCADJYKwOgOQ6J3KFoIkAcjdrSNG+iO08zjSKmLtjTHRUyrKdlzVmMhEn3bJqjVtX83rB9vO7iVTzLRtncfuGIvqgiTQU9aIsron02m2YtHhQlzay1rlzT06IO6uEGBAhBkSIARFiQIQYECEGRIgBEWJAhBgQIQZEiAERYkCEGBAhBkSIARFiQIQYECEGRIgBEWJAhBgQIQZEiAERYkCEGBAhBkRoQECwGFGD2JSqLfq8bCdPajhAELrbZEu0fkBUaThAKm4HN5Cv0YkC2iOjt3DczOUWjovNPIKo1Z/nENdi9jLCddPk+chsvKZO2Oe9asgiZgjhFo6budznSvolCKATEHDPMLOXY65jysQJtCwZY2ef96sBnbQ0BPDRZgtHyKL+s1T5TWZrs5+aDsfEqEwNyOz92DVcs1zDVvPZCiPAYAtHsxOfAgTBh7BnmNnLUX50e61AKEDZykQQ4759XjV4O8jeznEf0FMdvioBYSQsJIEld3F3TNiCbv+8Vw0GyNqm0XCpBlRoDOBudKogdo3UrNHgtZhwHGYLx4MiBkG82gcd2oZ+EwpY0JbAkLUYhP6Kytls4XgASM9SwVoMG5UY4Wvez/O98341dFdjbzvHA0Bv5rvNrhOrW5KqdOJ9XAB8uXfeqwZ30pUKUie5iwERYkCExgtoJGJAhBgQIQZEiAERYkCEGBAhBkSIARFiQIQYECEGRIgBEWJAhBgQIQZEiAERYkCEGBAhBkSIARH6A4uIxENeKKnGAAAAAElFTkSuQmCC" /><!-- --></p>
-</div>
-</div>
-<div id="example" class="section level1">
-<h1>Example</h1>
-<p>In this section, we illustrate how the package may be used on a
-dataset. In this case, we use a dataset on getting into graduate school
-from <a href="https://stats.oarc.ucla.edu/r/dae/logit-regression/">UCLA</a>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span>  <span class="fu">read.csv</span>(<span class="st">&quot;https://stats.idre.ucla.edu/stat/data/binary.csv&quot;</span>)</span></code></pre></div>
-<p>The dataset contains four variables with 400 observations. The
-variables are Graduate Record Exam scores (<code>gre</code>), grade
-point average (<code>gpa</code>) and the rank the undergraduate
-institution (`rank``).</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &#39;data.frame&#39;:    400 obs. of  4 variables:</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ admit: int  0 1 1 1 0 1 1 0 1 0 ...</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ gre  : int  380 660 800 640 520 760 560 400 540 700 ...</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ gpa  : num  3.61 3.67 4 3.19 2.93 3 2.98 3.08 3.39 3.92 ...</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ rank : int  3 3 1 4 4 2 1 2 3 2 ...</span></span></code></pre></div>
-<p>We imagine we are interested in testing the coefficient on
-<code>gre</code> and we want to estimate the model
-<code>admit ~ gre + gpa + rank</code> where we are interested in testing
-the coefficient on <code>hp</code>. We set <code>n = 400</code> because
-we have 400 observations.</p>
-<p>Let us also say that we would like it to be just as likely that the
-alternative is true compared to the null if we reject the null. This
-means that we want to know which alpha corresponds to a Bayes factor of
-1 (If we instead would want it to be 3 times more likely that the
-alternative is true than the null if we reject the null, we would find
-the alpha corresponding to a Bayes factor of 3). Thus, we set
-<code>BF = 1</code>. Because we wish to remain skeptical of trivial
-effects, we use the default <code>method = &quot;JAB</code>:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>alpha_gre <span class="ot">&lt;-</span> <span class="fu">alphaN</span>(<span class="at">n =</span> <span class="dv">400</span>, <span class="at">BF =</span> <span class="dv">1</span>, <span class="at">method =</span> <span class="st">&quot;JAB&quot;</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>alpha_gre</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.01437526</span></span></code></pre></div>
-<p>The <em>p</em>-value that corresponds to a Bayes factor of 1 for this
-particular model and sample size is 0.0144. We therefore set alpha to
-0.0144 and estimate our model.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>glm1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(admit <span class="sc">~</span> gpa <span class="sc">+</span> <span class="fu">factor</span>(rank) <span class="sc">+</span> gre, <span class="at">data =</span> df, <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm1)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; glm(formula = admit ~ gpa + factor(rank) + gre, family = &quot;binomial&quot;, </span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     data = df)</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Deviance Residuals: </span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Min       1Q   Median       3Q      Max  </span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; -1.6268  -0.8662  -0.6388   1.1490   2.0790  </span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (Intercept)   -3.989979   1.139951  -3.500 0.000465 ***</span></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; gpa            0.804038   0.331819   2.423 0.015388 *  </span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; factor(rank)2 -0.675443   0.316490  -2.134 0.032829 *  </span></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; factor(rank)3 -1.340204   0.345306  -3.881 0.000104 ***</span></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; factor(rank)4 -1.551464   0.417832  -3.713 0.000205 ***</span></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; gre            0.002264   0.001094   2.070 0.038465 *  </span></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (Dispersion parameter for binomial family taken to be 1)</span></span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Null deviance: 499.98  on 399  degrees of freedom</span></span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residual deviance: 458.52  on 394  degrees of freedom</span></span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; AIC: 470.52</span></span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Number of Fisher Scoring iterations: 4</span></span></code></pre></div>
-<p>The <em>p</em>-value for the coefficient on <code>gre</code> is about
-0.0385. Because this is larger than 0.0144, we cannot reject the null of
-no relationship and conclude that the null is more likely to be true
-conditional on this data.</p>
-<div id="quantifying-the-evidence-based-on-the-data" class="section level3">
-<h3>Quantifying the evidence based on the data</h3>
-<p>Next, we can compute the actual Bayes factor for <code>gre</code>. We
-can do this using the <code>JAB</code> function. It takes as an argument
-the <code>glm</code> object. We specify that we are interest in the
-<code>gre</code> variable and set <code>method = JAB adj</code> to
-adjust for the number of parameters. The function automatically counts
-the number of parameters based on the <code>glm</code> object:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>JAB_gre <span class="ot">&lt;-</span> <span class="fu">JAB</span>(glm1, <span class="at">covariate =</span> <span class="st">&quot;gre&quot;</span>, <span class="at">method =</span> <span class="st">&quot;JAB&quot;</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>JAB_gre</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.425894</span></span></code></pre></div>
-<p>We can see that the Bayes factor is 0.4259, which indeed does
-indicate that it is more likely that the null is true. The Bayes factor
-directly quantifies the evidence and suggests that it is 2.347969 times
-more likely that the null is true compared to the compared, which is
-just anecdotal evidence.</p>
-<p>We could also have computed the Bayes factor manually using the
-<code>JABt</code> function by plugging in the sample size and the
-z-statistic from the regression:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">JABt</span>(<span class="dv">400</span>, <span class="fl">2.070</span>, <span class="at">method =</span> <span class="st">&quot;JAB&quot;</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.4260143</span></span></code></pre></div>
-<p>or by plugging in the <span class="math inline">\(p\)</span>-value in
-the <code>JABp</code> function while making sure to tell the function
-that the <span class="math inline">\(p\)</span>-value is based on a
-z-test:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">JABp</span>(<span class="dv">400</span>, <span class="fl">0.038465</span>, <span class="at">z =</span> <span class="cn">TRUE</span>, <span class="at">method =</span> <span class="st">&quot;JAB&quot;</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.4258952</span></span></code></pre></div>
-<p>The difference to the result from <code>JAB</code> is solely due to
-rounding errors because <code>JAB</code> uses the exact values from the
-<code>glm</code> object instead of the rounded values that we supplied
-to the functions. The functions <code>JABt</code> and <code>JABp</code>
-are useful in situations where the dataset may not avaliable, for
-instance when for results printed in a journal article.</p>
 </div>
 </div>
 
